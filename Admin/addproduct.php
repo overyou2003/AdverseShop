@@ -4,36 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เพิ่มสินค้า</title>
+    <title>Add Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <h2>เพิ่มสินค้า</h2>
-    <form method="post" action="" enctype="multipart/form-data">
-        <input type="checkbox" id="1" name="productType[]" value="1">
-        <label for="vehicle1"> keyboard</label><br>
-        <input type="checkbox" id="2" name="productType[]" value="2">
-        <label for="vehicle2"> mouse</label><br>
-        <input type="checkbox" id="3" name="productType[]" value="3">
-        <label for="vehicle3"> headphone</label><br><br>
+    <header class="bg-dark py-3">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        ADVERSE ADMIN PANEL
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto me-5">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php">HOME</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex">
+                            <?php
+                            session_start();
 
-        <label for="productName">ชื่อสินค้า:</label><br>
-        <input type="text" id="productName" name="productName" placeholder="ชื่อสินค้า"><br><br>
+                            if (!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
+                                echo('<a href="../login.php" class="btn btn-warning me-3">LOGIN</a>');
+                            } else {
+                                echo('<a href="../Service/logout.php" class="btn btn-danger"><img src="../assets/logout.svg" alt=""></a>');
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container mt-5">
+        <h2>Add Product</h2>
+        <form method="post" action="" enctype="multipart/form-data" class="mt-4">
+            <div class="mb-3">
+                <input type="checkbox" id="keyboard" name="productType[]" value="1" class="form-check-input">
+                <label for="keyboard" class="form-check-label">Keyboard</label><br>
+                <input type="checkbox" id="mouse" name="productType[]" value="2" class="form-check-input">
+                <label for="mouse" class="form-check-label">Mouse</label><br>
+                <input type="checkbox" id="headphone" name="productType[]" value="3" class="form-check-input">
+                <label for="headphone" class="form-check-label">Headphone</label>
+            </div>
 
-        <label for="productPrice">ราคา:</label><br>
-        <input type="text" id="productPrice" name="productPrice" placeholder="ราคา"><br>
+            <div class="mb-3">
+                <label for="productName" class="form-label">Product Name:</label>
+                <input type="text" id="productName" name="productName" class="form-control" placeholder="Product Name" required>
+            </div>
 
-        <label for="productDetail">รายละเอียด:</label><br>
-        <input type="text" id="productDetail" name="productDetail" placeholder="รายละเอียด"><br>
+            <div class="mb-3">
+                <label for="productPrice" class="form-label">Price:</label>
+                <input type="text" id="productPrice" name="productPrice" class="form-control" placeholder="Price" required>
+            </div>
 
-        <label for="productImage">รูปภาพ:</label><br>
-        <input type="file" id="productImage" name="productImage"><br><br>
+            <div class="mb-3">
+                <label for="productDetail" class="form-label">Detail:</label>
+                <input type="textarea" id="productDetail" name="productDetail" class="form-control" placeholder="Detail" required rows="4" cols="50">
+            </div>
 
-        <button type="submit" name="submit">เพิ่มสินค้า</button>
-    </form>
+            <div class="mb-3">
+                <label for="productImage" class="form-label">Image:</label>
+                <input type="file" id="productImage" name="productImage" class="form-control" required>
+            </div>
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -93,7 +137,9 @@
         mysqli_close($conn);
     }
     ?>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -52,7 +52,7 @@ mysqli_query($conn,"set character_set_results=utf8mb4");
 
             else {
                 if ($_SESSION['role'] == 'admin') {
-                    echo('<a href="management.php" class="management-btn">MANANGMENT</a>');
+                    echo('<a href="Admin/management.php" class="management-btn">MANANGMENT</a>');
                     echo('<h3>'.$_SESSION['username'].'</h3>');
                     echo('<a href="Service/logout.php" class="logout-btn"><img src="assets/logout.svg" alt=""></a>');
                 } else {

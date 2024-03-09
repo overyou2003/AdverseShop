@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
     <title>Login</title>
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="post" action="">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" placeholder="Enter username"><br><br>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post" action="">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" placeholder="Enter username"><br>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" placeholder="Enter password"><br><br>
-        <button type="submit" name="submit">Login</button>
-
-        <a href="signup.php">sign up</a>
-    </form>
-
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="Enter password"><br><br>
+            <button type="submit" name="submit">Login</button>
+        </form><br>
+        <a href="signup.php">Sign Up</a>
+    </div>
     <?php
     session_start();
 
