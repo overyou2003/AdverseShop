@@ -227,7 +227,7 @@
     margin-top: 2em;
     position: relative;
     width: 250px;
-    height: 380px;
+    height: 400px;
     background: var(--black);
     border-radius: 20px;
     overflow: hidden;
@@ -279,7 +279,7 @@
     z-index: 2;
 }
 
-.card .contentBox h3 {
+.card .contentBox h4 {
     font-size: 16px;
     color: white;
     font-weight: 500;
@@ -317,11 +317,12 @@
 .card:hover {
     transition: .3s ease-in-out;
     transform: translateY(-5px);
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .item-img {
     height: 200px;
     width: auto;
 }
+
+    /* END OF MAIN SHOP SECTION */

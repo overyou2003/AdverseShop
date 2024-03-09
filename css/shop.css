@@ -1,0 +1,145 @@
+/* RESET WEB DEFAULT & FONTS */
+* {
+    font-family: "Kanit", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* COLOR VARIBLE */
+:root {
+    --black: #1e2328;
+    --midblack: #2a2e34;
+    --grey: #3b3f46;
+    --yellow: #ec9c04;
+    --midyellow: #f5b301;
+    --lightyellow: #fed053;
+}
+
+/* NAVIGATION BAR */
+.menu {
+    display: flex;
+    height: 75px;
+    background-color: var(--black);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: auto;
+    height: 75px;
+}
+
+.logo-name {
+    margin-left: 1em;
+    background-color: var(--black);
+    color: white;
+    font-size: larger;
+}
+
+.logo-name2 {
+    background-color: var(--black);
+    color: var(--yellow);
+}
+
+.menu ul {
+    background-color: inherit;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 90px;
+}
+
+.menu ul a {
+    background-color: var(--black);
+    text-decoration: none;
+}
+
+.menu ul a li {
+    margin: 0 10px;
+}
+
+.menu ul li {
+    font-size: large;
+    background-color: var(--black);
+    color: white;
+    border-top: 2px solid var(--black);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu ul li:hover {
+    cursor: pointer;
+    transform: translate(0, -3px);
+    color: var(--yellow);
+    border-top: 2px solid var(--yellow);
+}
+
+.login-btn {
+    margin-right: 1.5em;
+    padding: 10px 20px;
+    border: 2px solid var(--yellow);
+    border-radius: 12px;
+    background-color: var(--yellow);
+    color: var(--midblack);
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    transform: translate(0, -3px);
+    border: 2px solid var(--midyellow);
+    background-color: var(--midyellow);
+    color: var(--black);
+}
+
+/* END OF NAVIGATION BAR */
+
+
+/* SIDEBAR MENU SECTION */
+
+.main-shop-container {
+    margin-left: 220px; /* Adjust the margin to create space for the sidebar */
+}
+
+.sidebardmenu-container {
+    margin-left: 1em;
+    margin-top: 1em;
+    position: fixed;
+    left: 0;
+    width: 200px; 
+    height: calc(100vh - 80px); 
+    background-color: var(--black); 
+    padding-top: 20px; 
+    z-index: 100;
+    border-radius: 12px;
+}
+
+.sidebardmenu ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebardmenu ul a li {
+    padding: 10px 20px;
+    list-style: none;
+    text-align: start;
+    border: 2px solid var(--black);
+    transition: .3s;
+}
+
+.sidebardmenu ul a li:hover {
+    background-color: var(--grey);
+}
+
+.sidebardmenu ul a li {
+    text-decoration: none;
+    color: white;
+}
+
+
+
