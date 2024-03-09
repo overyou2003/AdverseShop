@@ -25,6 +25,10 @@
     justify-content: space-between;
 }
 
+.menu h3 {
+    color: white;
+}
+
 .logo {
     width: auto;
     height: 75px;
@@ -96,6 +100,35 @@
     color: var(--black);
 }
 
+.nav-actionbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.management-btn {
+    margin-right: 2em;
+    border-top: 2px solid var(--black);
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+}
+
+.management-btn:hover {
+    cursor: pointer;
+    transform: translate(0, -3px);
+    color: var(--yellow);
+    border-top: 2px solid var(--yellow);
+}
+
+.logout-btn {
+    color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+
 /* END OF NAVIGATION BAR */
 
 /* MAIN SHOP */
@@ -117,7 +150,8 @@
 }
 
 .sale-item-description {
-    font-size: 2em;
+    font-size: 20pt;
+    width: 50%;
     background-color: transparent;
 }
 
@@ -321,7 +355,7 @@
 }
 
 .item-img {
-    height: 200px;
+    height: 180px;
     width: auto;
 }
 

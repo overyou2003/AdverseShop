@@ -9,7 +9,7 @@
 
 <body>
     <h2>เพิ่มสินค้า</h2>
-    <form method="post" action="">
+    <form method="post" action="" enctype="multipart/form-data">
         <input type="checkbox" id="1" name="productType[]" value="1">
         <label for="vehicle1"> keyboard</label><br>
         <input type="checkbox" id="2" name="productType[]" value="2">
@@ -20,11 +20,14 @@
         <label for="productName">ชื่อสินค้า:</label><br>
         <input type="text" id="productName" name="productName" placeholder="ชื่อสินค้า"><br><br>
 
-        <label for="productName">ราคา:</label><br>
+        <label for="productPrice">ราคา:</label><br>
         <input type="text" id="productPrice" name="productPrice" placeholder="ราคา"><br>
 
-        <label for="productName">รายละเอียด:</label><br>
+        <label for="productDetail">รายละเอียด:</label><br>
         <input type="text" id="productDetail" name="productDetail" placeholder="รายละเอียด"><br>
+
+        <label for="productImage">รูปภาพ:</label><br>
+        <input type="file" id="productImage" name="productImage"><br><br>
 
         <button type="submit" name="submit">เพิ่มสินค้า</button>
     </form>
@@ -57,10 +60,30 @@
             $productType = ""; // ถ้าไม่ได้เลือกสินค้าก็เก็บเป็นค่าว่าง
         }
 
-        $insertSql = "INSERT INTO product (type, name, price, detail) VALUES ('$productType', '$productName', '$productPrice', '$productDetail')";
+        
+
+        // เช็คว่ามีไฟล์รูปหรือไม่
+        if(isset($_FILES["productImage"]) && $_FILES["productImage"]["error"] == UPLOAD_ERR_OK) {
+            $target_dir = "../pictures/"; // โฟลเดอร์ที่จะเก็บรูป
+            $target_file = $target_dir . basename($_FILES["productImage"]["name"]); // เอาชื่อไฟล์
+
+            $filename = basename($_FILES["productImage"]["name"]);
+
+            if(move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
+                echo "<p>อัพโหลดรูปสำเร็จ</p>";
+            } else {
+                echo "<p>อัพโหลดรูปไม่สำเร็จ</p>";
+            }
+        } else {
+            echo "<p>โปรดเลือกไฟล์รูป</p>";
+            exit();
+        }
+
+        $insertSql = "INSERT INTO product (type, name, price, detail, image) VALUES ('$productType', '$productName', '$productPrice', '$productDetail', '$filename')";
 
         if (mysqli_query($conn, $insertSql)) {
             echo "<p>เพิ่มข้อมูลสำเร็จ</p>";
+            // ทำการ redirect หลังจากการเพิ่มข้อมูล
             header("Location: ../index.php"); 
             exit(); 
         } else {
