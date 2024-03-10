@@ -90,12 +90,12 @@ if (!$row) {
             <div class="mb-3 row">
                 <label for="detail" class="col-sm-2 col-form-label">Detail:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="detail" name="detail" value="<?=$row["detail"];?>" required>
+                    <textarea class="form-control" id="detail" name="detail" rows="3" required><?=$row["detail"];?></textarea>
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col-sm-10 offset-sm-2">
-                    <input type="submit" class="btn btn-primary" name="Update" id="Update" value="Update">
+                    <input type="submit" class="btn btn-warning" name="Update" id="Update" value="Update">
                 </div>
             </div>
         </form>

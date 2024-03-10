@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: var(--midblack);
+}
+
 /* COLOR VARIBLE */
 :root {
     --black: #1e2328;
@@ -247,6 +251,7 @@
 /* MAIN SHOP SECTION */
 
 .main-shop-container {
+    background-color: var(--midblack);
     width: 94%;
     margin: 0 auto;
 }

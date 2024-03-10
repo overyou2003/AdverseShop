@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/detail.css">
     <title>Adverse</title>
 </head>
 
@@ -66,62 +66,24 @@ mysqli_query($conn,"set character_set_results=utf8mb4");
     </header>
 
     <article class="shop-container">
-        <div class="sale-item-container">
-            <div class="sale-item-description">
-            <?php 
+        <?php 
+            $id = $_GET["ID_PRO"];
 
-            $sql = "SELECT * FROM product WHERE type = 3 ORDER BY RAND()";
+            $sql = "SELECT * FROM product WHERE ID_PRO = $id";
             $result = mysqli_query($conn, $sql);
-
+            
             $rs = mysqli_fetch_array($result);
-            echo '<h1>'.$rs[2].'</h1>';
-            echo '<p>'.$rs[4].'</p><br>';
-            echo '<a href="shopdetail.php?ID_PRO=' . $rs["ID_PRO"] .'" class="buy"><button class="buy-btn">Buy Now</button></a>';
-            echo '</div>';
-            echo '<div class="sale-item-img">';
-            echo    '<img src="pictures/'.$rs[5].'" alt="">';
-            echo '</div>';
-            ?>
 
-        </div>
+            echo '<img src="pictures/'.$rs[5].'" alt="">';
+            echo $rs[2].'<br>';
+            echo $rs[3].'<br>';
+            echo $rs[4].'<br>';
 
 
-        <div class="submenu-container">
-            <nav class="submenu">
-                <ul>
-                    <li><a href="shop_keyboard.php"><img src="assets/keyboard-test.png" alt="" class="submenu-keyboard-img"><br>Keyboard</a></li>
-                    <li><a href="shop_mouse.php"><img src="assets/mouse-test.png" alt="" class="submenu-mouse-img"><br>Mouse</a></li>
-                    <li><a href="shop_headphone.php"><img src="assets/headphone-test.png" alt="" class="submenu-headphone-img"><br>Headphone</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        <div class="main-shop-container">
-            <div class="grid-container">
-                <?php 
-
-                    $sql = "SELECT * FROM product ORDER BY RAND()";
-                    $result = mysqli_query($conn, $sql);
-                
-                    while ($rs = mysqli_fetch_array($result)) {
-
-                        echo '<div class="card">';
-                        echo '<div class="imgBox">';
-                        echo '<img src="pictures/'.$rs[5].'" alt="mouse corsair" class="item-img">';
-                        echo '</div>';
-                        echo '';
-                        echo '<div class="contentBox">';
-                        echo '<h4>'.$rs[2].'</h4>';
-                        echo '<h3 class="price">'.$rs[3].' ฿</h3>';
-                        echo '<a href="shopdetail.php?ID_PRO=' . $rs["ID_PRO"] .'" class="buy">Buy Now</a>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                ?>
-            </div>
-        </div>
+        ?>
         
     </article>
+    
 
     <footer>
 

@@ -51,7 +51,7 @@ mysqli_query($conn,"set character_set_results=utf8mb4");
 
             else {
                 if ($_SESSION['role'] == 'admin') {
-                    echo('<a href="management.php" class="management-btn">MANANGMENT</a>');
+                    echo('<a href="Admin/management.php" class="management-btn">MANANGMENT</a>');
                     echo('<h3>'.$_SESSION['username'].'</h3>');
                     echo('<a href="Service/logout.php" class="logout-btn"><img src="assets/logout.svg" alt=""></a>');
                 } else {
@@ -95,7 +95,7 @@ mysqli_query($conn,"set character_set_results=utf8mb4");
                         echo '<div class="contentBox">';
                         echo '<h4>'.$rs[2].'</h4>';
                         echo '<h3 class="price">'.$rs[3].' ฿</h3>';
-                        echo '<a href="#" class="buy">Buy Now</a>';
+                        echo '<a href="shopdetail.php?ID_PRO=' . $rs["ID_PRO"] .'" class="buy">Buy Now</a>';
                         echo '</div>';
                         echo '</div>';
                         }

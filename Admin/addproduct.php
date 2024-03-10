@@ -13,7 +13,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="management.php">
                         ADVERSE ADMIN PANEL
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto me-5">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php">HOME</a>
+                                <a class="nav-link" href="../index.php">HOME</a>
                             </li>
                         </ul>
                         <div class="d-flex">
@@ -65,7 +65,7 @@
 
             <div class="mb-3">
                 <label for="productDetail" class="form-label">Detail:</label>
-                <input type="textarea" id="productDetail" name="productDetail" class="form-control" placeholder="Detail" required rows="4" cols="50">
+                <textarea id="productDetail" name="productDetail" class="form-control" placeholder="Detail" required rows="4"></textarea>
             </div>
 
             <div class="mb-3">
@@ -73,7 +73,7 @@
                 <input type="file" id="productImage" name="productImage" class="form-control" required>
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
+            <button type="submit" name="submit" class="btn btn-success">Add Product</button>
         </form>
 
         <?php
