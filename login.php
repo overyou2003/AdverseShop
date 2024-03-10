@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) == 1) {
 
         $user_data = mysqli_fetch_assoc($result);
+        $_SESSION['id'] = $user_data['ID_ACC']; 
         $_SESSION['username'] = $user_data['username']; 
         $_SESSION['role'] = $user_data['role']; 
         header("Location: index.php");

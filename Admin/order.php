@@ -51,39 +51,33 @@
     </header>
 
     <div class="container">
-        <h1 class="mt-4 mb-4">Product List</h1>
-        <a href="addproduct.php" class="btn btn-success"> + Add more products</a><br><br>
+        <h1 class="mt-4 mb-4">Order List</h1>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Detail</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Product Name</th>
+                    <th>Account Name</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 include('../Service/connection.php');
 
+                $order_query = "SELECT orderlist.ID_OR, product.name, account.username
+                FROM orderlist
+                JOIN product ON orderlist.ID_PRO = product.ID_PRO
+                JOIN account ON orderlist.ID_ACC = account.ID_ACC";
+                $order_result = mysqli_query($con, $order_query) or die("Error: " . mysqli_error($con));
 
-                $query = "SELECT * FROM product";
-                $result = mysqli_query($con, $query) or die("Error: " . mysqli_error($con));
-
-                while ($row = mysqli_fetch_array($result)) { 
+                while ($order_row = mysqli_fetch_array($order_result)) {
                     echo "<tr>";
-                    echo "<td>" . $row["ID_PRO"] .  "</td> "; 
-                    echo "<td>" . $row["type"] .  "</td> ";  
-                    echo "<td>" . $row["name"] .  "</td> ";
-                    echo "<td>" . $row["price"] .  "</td> ";
-                    echo "<td>" . $row["detail"] .  "</td> ";
-                    echo "<td><a href='update.php?member_id=" . $row["ID_PRO"] . "' class='btn btn-warning'>Edit</a></td>";
-                    echo "<td><a href='../Service/delete.php?ID_PRO=" . $row["ID_PRO"] . "' class='btn btn-danger'>Delete</a></td>";
+                    echo "<td>" . $order_row["ID_OR"] .  "</td> ";
+                    echo "<td>" . $order_row["name"] .  "</td> ";
+                    echo "<td>" . $order_row["username"] .  "</td> ";
+                    echo "<td><a href='../Service/orderdelete.php?ID_OR=" . $order_row["ID_OR"] . "' class='btn btn-success'>Confirm Order</a></td>";
                     echo "</tr>";
-                }
+}
 
                 mysqli_close($con);
                 ?>

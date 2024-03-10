@@ -6,13 +6,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Adverse</title>
 </head>
+<style>
+.shop-container {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr)); /* This will create as many columns as possible with a minimum width of 250px */
+    gap: 20px; /* Gap between grid items */
+    justify-items: center; /* Center items horizontally */
+}
+
+.person {
+    text-align: center; /* Center text inside each person container */
+    color: white;
+}
+
+
+.person img {
+    width: 300px;
+    height: auto;
+}
+</style>
 
 <?php
 session_start();
-
 
 $servername = "localhost"; 
 $username = "root"; 
@@ -29,6 +48,8 @@ if (!$conn) {
 mysqli_query($conn,"set character_set_connection=utf8mb4");
 mysqli_query($conn,"set character_set_client=utf8mb4");
 mysqli_query($conn,"set character_set_results=utf8mb4");
+
+
 
 ?>
 
@@ -64,56 +85,45 @@ mysqli_query($conn,"set character_set_results=utf8mb4");
         </nav>
     </header>
 
-
     <article class="shop-container">
-        <div class="main-shop-container">
-            <div class="sidebar-and-products">
-                <div class="sidebardmenu-container">
-                    <nav class="sidebardmenu">
-                        <ul>
-                            <a href="shop_keyboard.php"><li>Keyboard</li></a>
-                            <a href="shop_mouse.php"><li>Mouse</li></a>
-                            <a href="shop_headphone.php"><li>Headphone</li></a>
-                        </ul>
-                    </nav>
-                </div>
-
-                <div class="product-container">
-                    <div class="grid-container">
-                    <?php 
-
-                        $sql = "SELECT * FROM product WHERE type = 1";
-                        $result = mysqli_query($conn, $sql);
-                
-                        while ($rs = mysqli_fetch_array($result)) {
-
-                        echo '<div class="card">';
-                        echo '<div class="imgBox">';
-                        echo '<img src="pictures/'.$rs[5].'" alt="mouse corsair" class="item-img">';
-                        echo '</div>';
-                        echo '';
-                        echo '<div class="contentBox">';
-                        echo '<h4>'.$rs[2].'</h4>';
-                        echo '<h3 class="price">'.$rs[3].' ฿</h3>';
-                        echo '<a href="shopdetail.php?ID_PRO=' . $rs["ID_PRO"] .'" class="buy">Buy Now</a>';
-                        echo '</div>';
-                        echo '</div>';
-                        }
-                    ?>
-                    </div>
-                </div>
-            </div>
+        <div class="person">
+            <img src="assets/โน่.jpg" alt="">
+            <h3>นายธีรดนย์ ศรีวารี</h3>
+            <h5>6506021630020</h5>
         </div>
+        <div class="person">
+            <img src="assets/บอส.jpg" alt="">
+            <h3>นายธนวัฒน์ เเก้วคำไสย์</h3>
+            <h5>6506021630011</h5>
+        </div>
+        <div class="person">
+            <img src="assets/อั้ม.jpg" alt="">
+            <h3>นายวณิชานนท์ แซ่ลี้</h3>
+            <h5>6506021610045</h5>
+        </div>
+        <div class="person">
+            <img src="assets/เก้า.jpg" alt="">
+            <h3>นายวิริทธิ์พล ประสงค์</h3>
+            <h5>6506021622094</h5>
+        </div>
+        <div class="person">
+            <img src="assets/พี.jpg" alt="">
+            <h3>นายนายธนกร ฤกษ์งาม</h3>
+            <h5>6506021620059</h5>
+        </div>
+        <div class="person">
+            <img src="assets/ดรีม.jpg" alt="">
+            <h3>นายปฏิพัทธ์ บุญอนันต์</h3>
+            <h5>6506021620032</h5>
+        </div>
+
+
     </article>
 
-
     <footer>
-
     </footer>
-
     <?php 
         mysqli_close($conn);
     ?>
-
 </body>
 </html>
