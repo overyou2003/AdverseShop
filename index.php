@@ -40,7 +40,7 @@ mysqli_query($conn,"set character_set_results=utf8mb4");
             <ul>
                 <a href="index.php"><li>HOME</li></a>
                 <a href="shop_keyboard.php"><li>SHOP</li></a>
-                <a href="#"><li>LOCATION</li></a>
+                <a href="contact.php"><li>CONTACT</li></a>
             </ul>
 
             <div class="nav-actionbar">

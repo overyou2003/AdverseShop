@@ -40,7 +40,7 @@ mysqli_query($conn,"set character_set_results=utf8mb4");
             <ul>
                 <a href="index.php"><li>HOME</li></a>
                 <a href="shop_keyboard.php"><li>SHOP</li></a>
-                <a href="#"><li>LOCATION</li></a>
+                <a href="contact.php"><li>CONTACT</li></a>
             </ul>
 
             <div class="nav-actionbar">
@@ -66,6 +66,7 @@ mysqli_query($conn,"set character_set_results=utf8mb4");
     </header>
 
     <article class="shop-container">
+    <div class="product-container">
         <?php 
             $id = $_GET["ID_PRO"];
 
@@ -75,16 +76,23 @@ mysqli_query($conn,"set character_set_results=utf8mb4");
             $rs = mysqli_fetch_array($result);
 
             echo '<img src="pictures/'.$rs[5].'" alt="">';
-            echo $rs[2].'<br>';
-            echo $rs[3].'<br>';
-            echo $rs[4].'<br>';
-
-
+            echo '<div class="product-info">';
+            echo '<h1>'.$rs[2].'</h1><br>';
+            echo '<p>'.$rs[3].' บาท</p><br>';
+            echo '<p>'.$rs[4].'</p><br>';
+            echo '<form action="Service/buy.php" method="POST">';
+            echo '<input hidden value="'.$id.'" name="ID_PRO">';
+            echo '<input hidden value="'.$_SESSION["id"].'" name="ID_ACC">';
+            echo '<button type="submit" class="buy-btn">Buy Now</button>';
+            echo '</form>';
+            echo '</div>';
         ?>
-        
-    </article>
-    
+    </div>
+</article>
 
+    
+    
+    
     <footer>
 
     </footer>

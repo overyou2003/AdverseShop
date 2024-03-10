@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+if ($_SESSION['role'] == 'user') {
+    header("Location: ../index.php");
+}
+
 include('../Service/connection.php');
 
 if (!isset($_GET["member_id"]) || empty($_GET["member_id"])) { 

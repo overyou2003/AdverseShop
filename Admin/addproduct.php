@@ -1,3 +1,11 @@
+<?php 
+    session_start();
+    if ($_SESSION['role'] == 'user') {
+        header("Location: ../index.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +35,6 @@
                         </ul>
                         <div class="d-flex">
                             <?php
-                            session_start();
 
                             if (!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
                                 echo('<a href="../login.php" class="btn btn-warning me-3">LOGIN</a>');
